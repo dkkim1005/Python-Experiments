@@ -3,7 +3,7 @@
 ########### Example of Python Generator and Decorator syntax. ###########
 # Generator helps using lazy evaluation, which have been mainly used in #
 # functional programming paradigm.                                      #
-# Decorator is derived from decorator-pattern                           #
+# Decorator was derived from decorator-pattern                          #
 # which cames from design-pattern.                                      #
 #                                                                       #
 #------------------------------------------------------------------------
