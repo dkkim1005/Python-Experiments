@@ -6,8 +6,9 @@
 #include <Python.h>
 #include <numpy/ndarrayobject.h>
 
-// Ref : https://jianfengwang.wordpress.com/2015/11/19/how-python-calls-cc-functions/
-//     : http://stackoverflow.com/questions/18780570/passing-a-c-stdvector-to-numpy-array-in-python
+// Reference
+// : https://jianfengwang.wordpress.com/2015/11/19/how-python-calls-cc-functions/
+// : http://stackoverflow.com/questions/18780570/passing-a-c-stdvector-to-numpy-array-in-python
 
 
 // python ndarray  -->  C++ array
