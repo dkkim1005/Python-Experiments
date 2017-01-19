@@ -1,8 +1,16 @@
+#if !defined(PYTHON_NUMPY_WRAPPER)
+#define PYTHON_NUMPY_WRAPPER
+
 #include <iostream>
+#include <string>
+#include <Python.h>
 #include <numpy/ndarrayobject.h>
 
 // cited : https://jianfengwang.wordpress.com/2015/11/19/how-python-calls-cc-functions/
+//	 : http://stackoverflow.com/questions/18780570/passing-a-c-stdvector-to-numpy-array-in-python
 
+
+// python ndarray  -->  C++ array
 template <typename T>
 class ndarray_to_C_ptr_wrapper
 {
@@ -70,3 +78,26 @@ T& ndarray_to_C_ptr_wrapper<T>::operator[](const int i) const
 {
 	return ptr[i];
 }
+
+
+/*
+C++ array  -->  python ndarray
+
+argument:
+	C_ptr : Data type (e.g. float, double, ...)
+	NUM_DIMENSION : Dimension of ndarray (e.g. 1,2, ...)
+	DIMS : Shape of ndarray (e.g. {dim1,dim2,dim3,...})
+	TYPE : dtype of ndarray (e.g. NPY_FLOAT32, NPY_FLOAT64, ...)
+
+*/
+
+template<typename T>
+PyObject* C_ptr_to_ndarray_wrapper(const T* C_ptr,const int NUM_DIMENSION, npy_intp* const DIMS, const int TYPE)
+{
+	PyObject* numpyArray = (PyObject*)PyArray_SimpleNew(NUM_DIMENSION,DIMS,TYPE);
+	ndarray_to_C_ptr_wrapper<T> wrapper(numpyArray);
+	memcpy(wrapper.get_ptr(),C_ptr,sizeof(T)*wrapper.get_total_size());
+	return numpyArray;
+}
+
+#endif
