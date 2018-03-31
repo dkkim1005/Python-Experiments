@@ -1,5 +1,10 @@
 #!/bin/bash
 # This script file is written to compile a c(++) code in the Mac OS X enviroment.
+# ------------------------------------------------------------------------------------------------
+# --- Below environment variables are imported in the my shell script(~/.bash_profile or ~/.zshrc).
+# BOOST_INCLUDE : /Users/dongkyukim/lib/boost_1_66_0/
+# BOOST_LIBRARY : /Users/dongkyukim/lib/boost_1_66_0/src/stage/lib/
+# ------------------------------------------------------------------------------------------------
 
 TARGET=tester.so
 
