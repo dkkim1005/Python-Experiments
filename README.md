@@ -1,2 +1,3 @@
-# Python_experiment
-Collection of examples about python syntax and c-extention modules
+# Python experiment
+
+Examples of python syntax and writing a C-extention module
